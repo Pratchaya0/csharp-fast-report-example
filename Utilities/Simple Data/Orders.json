@@ -1,0 +1,274 @@
+[
+  {
+    "orderId": 1,
+    "itemCount": 2,
+    "totalAmount": 1500,
+    "discount": 100,
+    "net": 1400,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 6,
+        "productId": 11,
+        "orderId": 1,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 11,
+          "productGroupId": 5,
+          "productName": "USB Flash Drive",
+          "productPrice": 20,
+          "productGroup": {
+            "productGroupId": 5,
+            "productGroupName": "Storage"
+          }
+        }
+      },
+      {
+        "orderDetailId": 7,
+        "productId": 2,
+        "orderId": 1,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 2,
+          "productGroupId": 1,
+          "productName": "Laptop",
+          "productPrice": 1200,
+          "productGroup": {
+            "productGroupId": 1,
+            "productGroupName": "Computers"
+          }
+        }
+      },
+      {
+        "orderDetailId": 16,
+        "productId": 11,
+        "orderId": 1,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 11,
+          "productGroupId": 5,
+          "productName": "USB Flash Drive",
+          "productPrice": 20,
+          "productGroup": {
+            "productGroupId": 5,
+            "productGroupName": "Storage"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "orderId": 2,
+    "itemCount": 3,
+    "totalAmount": 1800,
+    "discount": 200,
+    "net": 1600,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 8,
+        "productId": 3,
+        "orderId": 2,
+        "procuctQuantity": 2,
+        "productDetail": {
+          "productId": 3,
+          "productGroupId": 1,
+          "productName": "Monitor",
+          "productPrice": 300,
+          "productGroup": {
+            "productGroupId": 1,
+            "productGroupName": "Computers"
+          }
+        }
+      },
+      {
+        "orderDetailId": 9,
+        "productId": 4,
+        "orderId": 2,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 4,
+          "productGroupId": 2,
+          "productName": "Keyboard",
+          "productPrice": 50,
+          "productGroup": {
+            "productGroupId": 2,
+            "productGroupName": "Accessories"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "orderId": 3,
+    "itemCount": 1,
+    "totalAmount": 300,
+    "discount": 0,
+    "net": 300,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 10,
+        "productId": 5,
+        "orderId": 3,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 5,
+          "productGroupId": 2,
+          "productName": "Mouse",
+          "productPrice": 30,
+          "productGroup": {
+            "productGroupId": 2,
+            "productGroupName": "Accessories"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "orderId": 4,
+    "itemCount": 4,
+    "totalAmount": 2300,
+    "discount": 300,
+    "net": 2000,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 11,
+        "productId": 6,
+        "orderId": 4,
+        "procuctQuantity": 2,
+        "productDetail": {
+          "productId": 6,
+          "productGroupId": 3,
+          "productName": "Printer",
+          "productPrice": 150,
+          "productGroup": {
+            "productGroupId": 3,
+            "productGroupName": "Printers & Scanners"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "orderId": 5,
+    "itemCount": 2,
+    "totalAmount": 250,
+    "discount": 50,
+    "net": 200,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 12,
+        "productId": 7,
+        "orderId": 5,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 7,
+          "productGroupId": 3,
+          "productName": "Scanner",
+          "productPrice": 200,
+          "productGroup": {
+            "productGroupId": 3,
+            "productGroupName": "Printers & Scanners"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "orderId": 6,
+    "itemCount": 3,
+    "totalAmount": 1800,
+    "discount": 100,
+    "net": 1700,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 13,
+        "productId": 8,
+        "orderId": 6,
+        "procuctQuantity": 2,
+        "productDetail": {
+          "productId": 8,
+          "productGroupId": 4,
+          "productName": "Tablet",
+          "productPrice": 500,
+          "productGroup": {
+            "productGroupId": 4,
+            "productGroupName": "Mobile Devices"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "orderId": 7,
+    "itemCount": 2,
+    "totalAmount": 600,
+    "discount": 50,
+    "net": 550,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 14,
+        "productId": 9,
+        "orderId": 7,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 9,
+          "productGroupId": 4,
+          "productName": "Smartphone",
+          "productPrice": 800,
+          "productGroup": {
+            "productGroupId": 4,
+            "productGroupName": "Mobile Devices"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "orderId": 8,
+    "itemCount": 1,
+    "totalAmount": 800,
+    "discount": 0,
+    "net": 800,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 15,
+        "productId": 10,
+        "orderId": 8,
+        "procuctQuantity": 3,
+        "productDetail": {
+          "productId": 10,
+          "productGroupId": 5,
+          "productName": "External HDD",
+          "productPrice": 100,
+          "productGroup": {
+            "productGroupId": 5,
+            "productGroupName": "Storage"
+          }
+        }
+      }
+    ]
+  }
+]

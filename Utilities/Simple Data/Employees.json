@@ -1,0 +1,57 @@
+[
+  {
+    "employeeId": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "phone": "123-456-7890",
+    "hireDate": "2022-06-15T00:00:00",
+    "salary": 55000,
+    "department": "IT",
+    "imageUrl": "https://lineagentapi.uatsiamsmile.com/messageImages/030425/image376369_20250403_095648.jpg"
+  },
+  {
+    "employeeId": 2,
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@example.com",
+    "phone": "987-654-3210",
+    "hireDate": "2021-03-10T00:00:00",
+    "salary": 62000,
+    "department": "HR",
+    "imageUrl": "https://lineagentapi.uatsiamsmile.com/messageImages/030425/image376369_20250403_095648.jpg"
+  },
+  {
+    "employeeId": 3,
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "email": "michael.johnson@example.com",
+    "phone": "456-789-0123",
+    "hireDate": "2020-09-25T00:00:00",
+    "salary": 72000,
+    "department": "Finance",
+    "imageUrl": "https://lineagentapi.uatsiamsmile.com/messageImages/030425/image376369_20250403_095648.jpg"
+  },
+  {
+    "employeeId": 4,
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "email": "emily.davis@example.com",
+    "phone": "321-654-0987",
+    "hireDate": "2023-01-12T00:00:00",
+    "salary": 58000,
+    "department": "Marketing",
+    "imageUrl": "https://lineagentapi.uatsiamsmile.com/messageImages/030425/image376369_20250403_095648.jpg"
+  },
+  {
+    "employeeId": 5,
+    "firstName": "David",
+    "lastName": "Brown",
+    "email": "david.brown@example.com",
+    "phone": null,
+    "hireDate": "2019-11-30T00:00:00",
+    "salary": 80000,
+    "department": "Engineering",
+    "imageUrl": "https://lineagentapi.uatsiamsmile.com/messageImages/030425/image376369_20250403_095648.jpg"
+  }
+]

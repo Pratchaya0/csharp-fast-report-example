@@ -1,0 +1,46 @@
+[
+  {
+    "orderId": 2,
+    "itemCount": 3,
+    "totalAmount": 1800,
+    "discount": 200,
+    "net": 1600,
+    "isActive": true,
+    "createdDate": "2024-04-01T00:00:00",
+    "createdByUserId": 101,
+    "orderDetails": [
+      {
+        "orderDetailId": 8,
+        "productId": 3,
+        "orderId": 2,
+        "procuctQuantity": 2,
+        "productDetail": {
+          "productId": 3,
+          "productGroupId": 1,
+          "productName": "Monitor",
+          "productPrice": 300,
+          "productGroup": {
+            "productGroupId": 1,
+            "productGroupName": "Computers"
+          }
+        }
+      },
+      {
+        "orderDetailId": 9,
+        "productId": 4,
+        "orderId": 2,
+        "procuctQuantity": 1,
+        "productDetail": {
+          "productId": 4,
+          "productGroupId": 2,
+          "productName": "Keyboard",
+          "productPrice": 50,
+          "productGroup": {
+            "productGroupId": 2,
+            "productGroupName": "Accessories"
+          }
+        }
+      }
+    ]
+  }
+]
