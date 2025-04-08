@@ -29,21 +29,7 @@ namespace SimpleFastReport.API.Controllers
 
 				var employees = await _services.ListEmployeeAsync();
 
-				var webReport = _fastReportHelper.CreateReport(employees, "ReportTemplateI.frx", "Employees");
-
-				ToolbarSettings toolbar = new ToolbarSettings()
-				{
-					ShowRefreshButton = false,
-					Exports = new ExportMenuSettings()
-					{
-						Show = true,
-						ExportTypes = Exports.Prepared | Exports.Pdf | Exports.Excel2007 | Exports.Word2007 | Exports.HTML | Exports.Csv | Exports.Image
-					}
-				};
-				webReport.Toolbar = toolbar;
-
-				ViewBag.WebReport = webReport;
-				return View("~/Views/Report/Index.cshtml");
+				throw new NotImplementedException();
 
 			}
 			catch (Exception ex)
@@ -62,10 +48,7 @@ namespace SimpleFastReport.API.Controllers
 
 				var order = await _services.FullDetailOrderByIDAsync(4);
 
-				var webReport = _fastReportHelper.CreateReport(order, "ReportTemplateII.frx", "Orders");
-
-				ViewBag.WebReport = webReport;
-				return View("~/Views/Report/OrderDetails.cshtml");
+				throw new NotImplementedException();
 
 			}
 			catch (Exception ex)
