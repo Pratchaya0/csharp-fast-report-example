@@ -9,20 +9,33 @@ namespace SimpleFastReport.API.Models
     {
         public Product()
         {
+            InventoryTransactions = new HashSet<InventoryTransaction>();
             OrderDetails = new HashSet<OrderDetail>();
+            ProductRecipes = new HashSet<ProductRecipe>();
+            PurchaseOrderDetails = new HashSet<PurchaseOrderDetail>();
+            Promotions = new HashSet<Promotion>();
         }
 
         public int ProductId { get; set; }
-        public int ProductGroupId { get; set; }
         public string ProductName { get; set; }
-        public decimal ProductPrice { get; set; }
+        public string Sku { get; set; }
+        public string Description { get; set; }
+        public int CategoryId { get; set; }
+        public decimal Price { get; set; }
+        public decimal Cost { get; set; }
+        public int StockQuantity { get; set; }
+        public int ReorderLevel { get; set; }
+        public int SupplierId { get; set; }
         public bool? IsActive { get; set; }
-        public int CreatedByUserId { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public int? UpdatedByUserId { get; set; }
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime DateAdded { get; set; }
 
-        public virtual ProductGroup ProductGroup { get; set; }
+        public virtual ProductCategory Category { get; set; }
+        public virtual Supplier Supplier { get; set; }
+        public virtual ICollection<InventoryTransaction> InventoryTransactions { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<ProductRecipe> ProductRecipes { get; set; }
+        public virtual ICollection<PurchaseOrderDetail> PurchaseOrderDetails { get; set; }
+
+        public virtual ICollection<Promotion> Promotions { get; set; }
     }
 }

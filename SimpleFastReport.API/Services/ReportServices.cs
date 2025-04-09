@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using SimpleFastReport.API.Data;
 using SimpleFastReport.API.DTOs;
+using SimpleFastReport.API.Models;
 
 namespace SimpleFastReport.API.Services
 {
@@ -21,18 +22,31 @@ namespace SimpleFastReport.API.Services
 		public async Task<List<EmployeeReponseDTO>> ListEmployeeAsync(CancellationToken cancellationToken = default)
 			=> await _dBContext.Employees.Take(1000).ProjectTo<EmployeeReponseDTO>(_mapper.ConfigurationProvider).ToListAsync(cancellationToken);
 
-		public async Task<List<OrderReponseDTO>> FullDetailOrderByIDAsync(int orderID, CancellationToken cancellationToken = default)
+		public async Task<(List<OrderReponseDTO> header, List<OrderDetailReponseDTO> details)> OrderFullDetailByOrderID(int orderID, CancellationToken cancellationToken = default)
 		{
-			var order = await _dBContext.Orders
-				.Include(_ => _.OrderDetails)
-				.Include(_ => _.OrderDetails).ThenInclude(_ => _.Product)
-				.Include(_ => _.OrderDetails).ThenInclude(_ => _.Product).ThenInclude(_ => _.ProductGroup)
-				.Where(_ => _.OrderId == orderID && _.IsActive == true)
+
+			var header = await _dBContext.Orders
+				.Include(_ => _.Customer)
+				.Include(_ => _.Employee)
+				.Include(_ => _.Location)
+				.Include(_ => _.Status)
+				.Where(_ => _.OrderId == orderID)
 				.AsSplitQuery()
 				.ProjectTo<OrderReponseDTO>(_mapper.ConfigurationProvider)
 				.ToListAsync(cancellationToken);
 
-			return order;
+
+			var details = await _dBContext.OrderDetails
+				.Include(_ => _.Order)
+				.Include(_ => _.Product)
+				.Include(_ => _.Product).ThenInclude(_ => _.Category)
+				.Where(_ => _.OrderId == orderID)
+				.AsSplitQuery()
+				.ProjectTo<OrderDetailReponseDTO>(_mapper.ConfigurationProvider)
+				.ToListAsync(cancellationToken);
+
+			return (header, details);
+
 		}
 
 	}

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="04/08/2025 13:13:22" ReportInfo.Modified="04/08/2025 14:35:11" ReportInfo.CreatorVersion="2025.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/08/2025 13:13:22" ReportInfo.Modified="04/09/2025 15:00:52" ReportInfo.CreatorVersion="2025.1.0.0">
   <Dictionary>
     <BusinessObjectDataSource Name="Employees" ReferenceName="Employees" DataType="System.Int32" Enabled="true">
       <Column Name="employeeId" DataType="System.Double"/>
@@ -8,9 +8,11 @@
       <Column Name="email" DataType="System.String"/>
       <Column Name="phone" DataType="System.String"/>
       <Column Name="hireDate" DataType="System.String"/>
+      <Column Name="position" DataType="System.String"/>
       <Column Name="salary" DataType="System.Double"/>
-      <Column Name="department" DataType="System.String"/>
-      <Column Name="imageUrl" DataType="System.String"/>
+      <Column Name="locationId" DataType="System.Double"/>
+      <Column Name="managerId" DataType="System.Object"/>
+      <Column Name="isActive" DataType="System.Boolean" BindableControl="CheckBox"/>
     </BusinessObjectDataSource>
   </Dictionary>
   <ReportPage Name="Page2" Watermark.Font="Arial, 60pt">
@@ -26,7 +28,7 @@
     <DataBand Name="Data1" Top="71.15" Width="718.2" Height="170.1" Guides="0" DataSource="Employees">
       <ShapeObject Name="Shape1" Width="718.2" Height="37.8" Border.Width="0" Fill="LinearGradient" Fill.StartColor="Brown" Fill.EndColor="IndianRed" Fill.Angle="270" Fill.Focus="0.5" Fill.Contrast="1"/>
       <TextObject Name="Text2" Left="37.8" Top="9.45" Width="311.85" Height="18.9" Text="[Employees.firstName] [Employees.lastName]" Font="Arial, 10pt" TextFill.Color="White"/>
-      <PictureObject Name="Picture1" Left="557.55" Top="56.7" Width="94.5" Height="94.5" DataColumn="Employees.imageUrl"/>
+      <PictureObject Name="Picture1" Left="557.55" Top="56.7" Width="94.5" Height="94.5" ImageLocation="https://lineagentapi.uatsiamsmile.com/messageImages/030425/image376369_20250403_095648.jpg" ImageFormat="Jpeg"/>
       <TableObject Name="Table1" Left="37.8" Top="56.7" Width="491.45" Height="94.5">
         <TableColumn Name="Column1" Width="85.09"/>
         <TableColumn Name="Column2" Width="406.36"/>
@@ -48,7 +50,7 @@
         </TableRow>
         <TableRow Name="Row5">
           <TableCell Name="Cell18" Text="Department: " Font="Arial, 10pt"/>
-          <TableCell Name="Cell19" Text="[Employees.department]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell19" Text="[Employees.position]" Font="Arial, 10pt"/>
         </TableRow>
       </TableObject>
     </DataBand>

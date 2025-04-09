@@ -8,9 +8,11 @@
 		public string Email { get; set; }
 		public string Phone { get; set; }
 		public DateTime HireDate { get; set; }
+		public string Position { get; set; }
 		public decimal Salary { get; set; }
-		public string Department { get; set; }
-		public string ImageUrl { get; set; }
+		public int LocationId { get; set; }
+		public int? ManagerId { get; set; }
+		public bool? IsActive { get; set; }
 
 	}
 

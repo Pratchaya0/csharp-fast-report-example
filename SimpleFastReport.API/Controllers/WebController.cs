@@ -36,7 +36,7 @@ namespace SimpleFastReport.API.Controllers
 					Exports = new ExportMenuSettings()
 					{
 						Show = true,
-						ExportTypes = Exports.Prepared | Exports.Pdf | Exports.Excel2007 | Exports.Word2007 | Exports.HTML | Exports.Csv | Exports.Image
+						ExportTypes = Exports.Prepared | Exports.Pdf | Exports.HTML | Exports.Csv | Exports.Image
 					}
 				};
 				webReport.Toolbar = toolbar;
@@ -52,16 +52,33 @@ namespace SimpleFastReport.API.Controllers
 
 		}
 
-		[HttpGet("orders")]
-		public async Task<IActionResult> OrderReportViewer(CancellationToken cancellationToken = default)
+		[HttpGet("order-details/{orderID}")]
+		public async Task<IActionResult> OrderDetailReportViewer([FromRoute] int orderID, CancellationToken cancellationToken = default)
 		{
 
 			try
 			{
 
-				var order = await _services.FullDetailOrderByIDAsync(4, cancellationToken);
+				var (header, details) = await _services.OrderFullDetailByOrderID(orderID, cancellationToken);
 
-				var webReport = _fastReportHelper.CreateWebReport(order, "ReportTemplateII.frx", "Orders");
+				var dataSources = new Dictionary<string, IEnumerable<object>>
+				{
+					{ "Header", header },
+					{ "Details", details },
+				};
+
+				var webReport = _fastReportHelper.CreateWebReport(dataSources, "ReportTemplateII.frx");
+
+				ToolbarSettings toolbar = new ToolbarSettings()
+				{
+					ShowRefreshButton = false,
+					Exports = new ExportMenuSettings()
+					{
+						Show = true,
+						ExportTypes = Exports.Prepared | Exports.Pdf | Exports.Excel2007 | Exports.Word2007 | Exports.HTML | Exports.Csv | Exports.Image
+					}
+				};
+				webReport.Toolbar = toolbar;
 
 				ViewBag.WebReport = webReport;
 				return View("~/Views/Report/OrderDetails.cshtml");
@@ -73,6 +90,7 @@ namespace SimpleFastReport.API.Controllers
 			}
 
 		}
+
 
 	}
 }

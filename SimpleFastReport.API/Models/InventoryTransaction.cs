@@ -5,17 +5,18 @@ using System.Collections.Generic;
 
 namespace SimpleFastReport.API.Models
 {
-    public partial class OrderDetail
+    public partial class InventoryTransaction
     {
-        public int OrderDetailId { get; set; }
-        public int OrderId { get; set; }
+        public int TransactionId { get; set; }
         public int ProductId { get; set; }
+        public DateTime TransactionDate { get; set; }
         public int Quantity { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal Discount { get; set; }
+        public string TransactionType { get; set; }
+        public int? ReferenceId { get; set; }
         public string Notes { get; set; }
+        public int EmployeeId { get; set; }
 
-        public virtual Order Order { get; set; }
+        public virtual Employee Employee { get; set; }
         public virtual Product Product { get; set; }
     }
 }
