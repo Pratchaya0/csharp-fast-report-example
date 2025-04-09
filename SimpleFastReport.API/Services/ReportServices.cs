@@ -26,8 +26,7 @@ namespace SimpleFastReport.API.Services
 			var order = await _dBContext.Orders
 				.Include(_ => _.OrderDetails)
 				.Include(_ => _.OrderDetails).ThenInclude(_ => _.Product)
-				.Include(_ => _.OrderDetails).ThenInclude(_ => _.Product).ThenInclude(_ => _.ProductGroup)
-				.Where(_ => _.OrderId == orderID && _.IsActive == true)
+				.Where(_ => _.OrderId == orderID)
 				.AsSplitQuery()
 				.ProjectTo<OrderReponseDTO>(_mapper.ConfigurationProvider)
 				.ToListAsync();

@@ -12,11 +12,6 @@ namespace SimpleFastReport.API
 
 			CreateMap<Employee, EmployeeReponseDTO>();
 
-			CreateMap<Product, ProductResponeDTO>()
-				.ForMember(_ => _.ProductGroup, _ => _.MapFrom(_ => _.ProductGroup));
-
-			CreateMap<ProductGroup, ProductGroupResponseDTO>();
-
 			CreateMap<Order, OrderReponseDTO>();
 
 			CreateMap<OrderDetail, OrderDetailReponseDTO>()

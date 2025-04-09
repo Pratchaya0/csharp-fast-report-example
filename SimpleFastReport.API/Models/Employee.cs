@@ -7,14 +7,35 @@ namespace SimpleFastReport.API.Models
 {
     public partial class Employee
     {
+        public Employee()
+        {
+            InventoryTransactions = new HashSet<InventoryTransaction>();
+            InverseManager = new HashSet<Employee>();
+            Orders = new HashSet<Order>();
+            PurchaseOrders = new HashSet<PurchaseOrder>();
+            Reservations = new HashSet<Reservation>();
+            Shifts = new HashSet<Shift>();
+        }
+
         public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public DateTime HireDate { get; set; }
+        public string Position { get; set; }
         public decimal Salary { get; set; }
-        public string Department { get; set; }
-        public string ImageUrl { get; set; }
+        public int LocationId { get; set; }
+        public int? ManagerId { get; set; }
+        public bool? IsActive { get; set; }
+
+        public virtual Location Location { get; set; }
+        public virtual Employee Manager { get; set; }
+        public virtual ICollection<InventoryTransaction> InventoryTransactions { get; set; }
+        public virtual ICollection<Employee> InverseManager { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Shift> Shifts { get; set; }
     }
 }

@@ -367,5 +367,3 @@ wwwroot/
 
 appsettings.Development.json
 
-
-AppDBContext.cs

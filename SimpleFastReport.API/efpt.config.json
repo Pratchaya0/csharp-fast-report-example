@@ -15,7 +15,31 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[Customer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DiningTable]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Employee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Feedback]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Ingredient]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[InventoryTransaction]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Location]",
          "ObjectType": 0
       },
       {
@@ -27,11 +51,55 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[OrderStatus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Payment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PaymentMethod]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Product]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[ProductGroup]",
+         "Name": "[dbo].[ProductCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ProductRecipe]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Promotion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PromotionProduct]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PurchaseOrder]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PurchaseOrderDetail]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Reservation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Shift]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Supplier]",
          "ObjectType": 0
       }
    ],

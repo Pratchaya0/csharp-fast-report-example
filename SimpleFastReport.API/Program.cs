@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SimpleFastReport.API;
 using SimpleFastReport.API.Data;
 
@@ -11,7 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDBContext>();
+builder.Services.AddDbContext<AppDBContext>(
+		options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 
