@@ -93,13 +93,10 @@ namespace SimpleFastReport.API.Helpers
 			{
 
 				report.Load(Path.Combine(ReportsPath, reportTemplate));
-
-				// Register all datasets dynamically
 				foreach (var kv in dataSources)
 				{
 					report.RegisterData(kv.Value, kv.Key);
 				}
-
 				report.Prepare();
 
 				using (MemoryStream ms = new MemoryStream())
@@ -108,26 +105,25 @@ namespace SimpleFastReport.API.Helpers
 					switch (type)
 					{
 						case ExportType.PDF:
-							var pdf = new PDFSimpleExport();
+							PDFSimpleExport pdf = new PDFSimpleExport();
 							report.Export(pdf, ms);
-							break;
+							return File(ms.ToArray(), "application/pdf", $"{filename}.pdf");
+
 						case ExportType.HTML:
-							var html = new HTMLExport();
+							HTMLExport html = new HTMLExport();
 							report.Export(html, ms);
-							break;
+							return File(ms.ToArray(), "text/html", $"{filename}.html");
+
 						case ExportType.JPEG:
 						case ExportType.PNG:
-							var image = new ImageExport { ImageFormat = GetImageFormat(type) };
+							ImageExport image = new ImageExport();
+							image.ImageFormat = GetImageFormat(type);
 							report.Export(image, ms);
-							break;
+							return File(ms.ToArray(), GetMimeType(type), $"{filename}.{type.ToString().ToLower()}");
+
 						default:
 							return BadRequest("Unsupported export type");
 					}
-
-					var contentType = GetMimeType(type);
-					var fileExtension = type.ToString().ToLower();
-
-					return File(ms.ToArray(), contentType, $"{filename}.{fileExtension}");
 
 				}
 
@@ -148,6 +144,18 @@ namespace SimpleFastReport.API.Helpers
 			var webReport = new WebReport();
 			webReport.Report.Load(Path.Combine(ReportsPath, reportTemplate));
 			webReport.Report.RegisterData(data, dataSetName);
+			webReport.Report.Prepare();
+			return webReport;
+		}
+
+		public WebReport CreateWebReport<T>(Dictionary<string, IEnumerable<T>> dataSources, string reportTemplate)
+		{
+			var webReport = new WebReport();
+			webReport.Report.Load(Path.Combine(ReportsPath, reportTemplate));
+			foreach (var kv in dataSources)
+			{
+				webReport.Report.RegisterData(kv.Value, kv.Key);
+			}
 			webReport.Report.Prepare();
 			return webReport;
 		}

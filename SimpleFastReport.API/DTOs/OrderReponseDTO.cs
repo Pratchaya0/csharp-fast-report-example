@@ -3,38 +3,28 @@
 	public class OrderReponseDTO
 	{
 		public int OrderId { get; set; }
-		public int ItemCount { get; set; }
+		public string OrderNumber { get; set; }
+		public DateTime OrderDate { get; set; }
+		public int? CustomerId { get; set; }
+		public string CustomerName { get; set; }
+		public string CustomerPhone { get; set; }
+		public string CustomerEmail { get; set; }
+		public int EmployeeId { get; set; }
+		public string EmployeeName { get; set; }
+		public string EmployeePhone { get; set; }
+		public string EmployeeEmail { get; set; }
+		public int LocationId { get; set; }
+		public string LocationName { get; set; }
+		public string LocationPhone { get; set; }
+		public string LocationAddress { get; set; }
+		public string LocationCity { get; set; }
+		public string LocationPostalCode { get; set; }
+		public decimal SubTotal { get; set; }
+		public decimal TaxAmount { get; set; }
+		public decimal DiscountAmount { get; set; }
 		public decimal TotalAmount { get; set; }
-		public decimal Discount { get; set; }
-		public decimal Net { get; set; }
-		public bool? IsActive { get; set; }
-		public DateTime CreatedDate { get; set; }
-		public int CreatedByUserId { get; set; }
-		public List<OrderDetailReponseDTO> OrderDetails { get; set; }
+		public int StatusId { get; set; }
+		public string StatusName { get; set; }
+		public string Notes { get; set; }
 	}
-
-	public class OrderDetailReponseDTO
-	{
-		public int OrderDetailId { get; set; }
-		public int ProductId { get; set; }
-		public int OrderId { get; set; }
-		public int ProcuctQuantity { get; set; }
-		public ProductResponeDTO ProductDetail { get; set; }
-	}
-
-	public class ProductResponeDTO
-	{
-		public int ProductId { get; set; }
-		public int ProductGroupId { get; set; }
-		public string ProductName { get; set; }
-		public decimal ProductPrice { get; set; }
-		public ProductGroupResponseDTO ProductGroup { get; set; }
-	}
-
-	public class ProductGroupResponseDTO
-	{
-		public int ProductGroupId { get; set; }
-		public string ProductGroupName { get; set; }
-	}
-
 }

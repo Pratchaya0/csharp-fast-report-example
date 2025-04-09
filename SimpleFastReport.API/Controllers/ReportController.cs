@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using SimpleFastReport.API.Helpers;
 using SimpleFastReport.API.Services;
 
@@ -17,30 +18,29 @@ namespace SimpleFastReport.API.Controllers
 			_fastReportHelper = fastReportHelper;
 		}
 
-
-		[HttpGet("data-employee-json")]
-		public async Task<IActionResult> GetListEmployee() => Ok(await _services.ListEmployeeAsync());
-
 		[HttpGet("employee-pdf")]
-		public async Task<IActionResult> EmployeePDFReport()
+		public async Task<IActionResult> EmployeePDFReport(CancellationToken cancellationToken = default)
 		{
-			var employees = await _services.ListEmployeeAsync();
+			var employees = await _services.ListEmployeeAsync(cancellationToken);
 
-			return await _fastReportHelper.ExportReport(employees, "ReportTemplateI.frx", "fileName", ExportType.PDF, "Employees");
+			return await _fastReportHelper.ExportReport(employees, "ReportTemplateI.frx", "employee-list", ExportType.PDF, "Employees");
 		}
 
 
-
-
-		[HttpGet("data-order-json/{orderID}")]
-		public async Task<IActionResult> GetFulldetailOrderByID([FromRoute] int orderID) => Ok(await _services.FullDetailOrderByIDAsync(orderID));
-
-		[HttpGet("order-pdf/{orderID}")]
-		public async Task<IActionResult> OrderPDFReport([FromRoute] int orderID)
+		[HttpGet("order-details/{orderID}")]
+		public async Task<IActionResult> GetOrderDetailByOrderID([FromRoute] int orderID, CancellationToken cancellationToken = default)
 		{
-			var order = await _services.FullDetailOrderByIDAsync(orderID);
 
-			return await _fastReportHelper.ExportReport(order, "OrderByID.frx", "order_details", ExportType.PDF);
+			var (header, details) = await _services.OrderFullDetailByOrderID(orderID, cancellationToken);
+
+			var dataSources = new Dictionary<string, IEnumerable<object>>
+			{
+				{ "Header", header },
+				{ "Details", details },
+			};
+
+			return await _fastReportHelper.ExportReport(dataSources, "ReportTemplateII.frx", "order-details", ExportType.PDF);
+
 		}
 
 	}

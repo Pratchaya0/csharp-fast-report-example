@@ -1,47 +1,158 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="04/04/2025 10:00:43" ReportInfo.Modified="04/08/2025 16:37:56" ReportInfo.CreatorVersion="2025.1.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/09/2025 13:11:28" ReportInfo.Modified="04/09/2025 14:41:22" ReportInfo.CreatorVersion="2025.1.0.0">
   <Dictionary>
-    <BusinessObjectDataSource Name="Orders" ReferenceName="Orders" DataType="FastReport.Utils.Json.JsonArray" Enabled="true">
+    <BusinessObjectDataSource Name="Header" ReferenceName="Header" DataType="FastReport.Utils.Json.JsonArray" Enabled="true">
       <Column Name="orderId" DataType="System.Double"/>
-      <Column Name="itemCount" DataType="System.Double"/>
+      <Column Name="orderNumber" DataType="System.String"/>
+      <Column Name="orderDate" DataType="System.String"/>
+      <Column Name="customerId" DataType="System.Double"/>
+      <Column Name="customerName" DataType="System.String"/>
+      <Column Name="customerPhone" DataType="System.String"/>
+      <Column Name="customerEmail" DataType="System.String"/>
+      <Column Name="employeeId" DataType="System.Double"/>
+      <Column Name="employeeName" DataType="System.String"/>
+      <Column Name="employeePhone" DataType="System.String"/>
+      <Column Name="employeeEmail" DataType="System.String"/>
+      <Column Name="locationId" DataType="System.Double"/>
+      <Column Name="locationName" DataType="System.String"/>
+      <Column Name="locationPhone" DataType="System.String"/>
+      <Column Name="locationAddress" DataType="System.String"/>
+      <Column Name="locationCity" DataType="System.String"/>
+      <Column Name="locationPostalCode" DataType="System.String"/>
+      <Column Name="subTotal" DataType="System.Double"/>
+      <Column Name="taxAmount" DataType="System.Double"/>
+      <Column Name="discountAmount" DataType="System.Double"/>
       <Column Name="totalAmount" DataType="System.Double"/>
+      <Column Name="statusId" DataType="System.Double"/>
+      <Column Name="statusName" DataType="System.String"/>
+      <Column Name="notes" DataType="System.Object"/>
+    </BusinessObjectDataSource>
+    <BusinessObjectDataSource Name="Details" ReferenceName="Details" DataType="FastReport.Utils.Json.JsonArray" Enabled="true">
+      <Column Name="orderDetailId" DataType="System.Double"/>
+      <Column Name="orderId" DataType="System.Double"/>
+      <Column Name="productId" DataType="System.Double"/>
+      <Column Name="productSku" DataType="System.String"/>
+      <Column Name="productName" DataType="System.String"/>
+      <Column Name="productDescription" DataType="System.String"/>
+      <Column Name="productCategoryId" DataType="System.Double"/>
+      <Column Name="productCategoryName" DataType="System.String"/>
+      <Column Name="quantity" DataType="System.Double"/>
+      <Column Name="unitPrice" DataType="System.Double"/>
       <Column Name="discount" DataType="System.Double"/>
-      <Column Name="net" DataType="System.Double"/>
-      <Column Name="isActive" DataType="System.Boolean" BindableControl="CheckBox"/>
-      <Column Name="createdDate" DataType="System.String"/>
-      <Column Name="createdByUserId" DataType="System.Double"/>
-      <Column Name="orderDetails" DataType="FastReport.JsonBase">
-        <Column Name="orderDetailId" DataType="System.Double"/>
-        <Column Name="productId" DataType="System.Double"/>
-        <Column Name="orderId" DataType="System.Double"/>
-        <Column Name="procuctQuantity" DataType="System.Double"/>
-        <Column Name="productDetail" DataType="FastReport.JsonBase">
-          <Column Name="productId" DataType="System.Double"/>
-          <Column Name="productGroupId" DataType="System.Double"/>
-          <Column Name="productName" DataType="System.String"/>
-          <Column Name="productPrice" DataType="System.Double"/>
-          <Column Name="productGroup" DataType="FastReport.JsonBase">
-            <Column Name="productGroupId" DataType="System.Double"/>
-            <Column Name="productGroupName" DataType="System.String"/>
-          </Column>
-        </Column>
-      </Column>
+      <Column Name="lineTotal" DataType="System.Double"/>
+      <Column Name="notes" DataType="System.Object"/>
     </BusinessObjectDataSource>
   </Dictionary>
   <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
-    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
-      <TextObject Name="Text1" Top="9.45" Width="718.2" Height="18.9" Text="[UpperCase(&quot;Order Details&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="94.5">
+      <PictureObject Name="Picture1" Left="321.3" Top="18.9" Width="75.6" Height="75.6" Fill.Color="LightGray" ImageLocation="https://lineagentapi.uatsiamsmile.com/messageImages/030425/image376369_20250403_095648.jpg" ImageFormat="Jpeg"/>
+      <ChildBand Name="Child1" Top="97" Width="718.2" Height="18.9"/>
     </ReportTitleBand>
-    <PageHeaderBand Name="PageHeader1" Top="40.3" Width="718.2" Height="28.35">
-      <TextObject Name="Text3" Left="151.2" Width="94.5" Height="18.9" Text="itemCount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
-      <TextObject Name="Text5" Left="274.05" Width="94.5" Height="18.9" Text="totalAmount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
-      <TextObject Name="Text10" Left="406.35" Width="94.5" Height="18.9" Text="discount" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
-    </PageHeaderBand>
-    <DataBand Name="Data1" Top="71.15" Width="718.2" Height="75.6" DataSource="Orders">
-      <TextObject Name="Text7" Left="151.2" Top="18.9" Width="94.5" Height="18.9" Text="[Orders.itemCount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
-      <TextObject Name="Text8" Left="274.05" Top="18.9" Width="94.5" Height="18.9" Text="[Orders.totalAmount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
-      <TextObject Name="Text9" Left="406.35" Top="18.9" Width="94.5" Height="18.9" Text="[Orders.discount]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+    <DataBand Name="Data1" Top="215.4" Width="718.2" Height="170.1" DataSource="Header">
+      <BarcodeObject Name="Barcode1" Left="548.1" Top="9.45" Width="132" Height="150" DataColumn="Header.orderId" Text="---------------------------" NoDataText="No data" AllowExpressions="true" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true" Barcode.ShowMarker="true"/>
+      <TextObject Name="Text4" Left="18.9" Top="18.9" Width="189" Height="18.9" Text="Customer" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text5" Left="226.8" Top="18.9" Width="189" Height="18.9" Text="Employee" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text8" Left="18.9" Top="37.8" Width="189" Height="18.9" Text="[UpperCase([Header.customerName])]" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text9" Left="18.9" Top="56.7" Width="189" Height="18.9" Text="Tel. [Header.customerPhone]" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text10" Left="18.9" Top="75.6" Width="189" Height="18.9" Text="Email: [Header.customerEmail]" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text11" Left="226.8" Top="37.8" Width="189" Height="18.9" Text="[UpperCase([Header.employeeName])]" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text12" Left="226.8" Top="56.7" Width="189" Height="18.9" Text="ID: [Header.employeeId]" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text13" Left="226.8" Top="75.6" Width="189" Height="18.9" Text="Tel. [Header.employeePhone]" Font="Angsana New, 12pt"/>
+      <TextObject Name="Text14" Left="226.8" Top="94.5" Width="189" Height="18.9" Text="Email: [Header.employeeEmail]" Font="Angsana New, 12pt"/>
+      <ChildBand Name="Child2" Top="388" Width="718.2" Height="18.9"/>
+      <DataHeaderBand Name="DataHeader1" Top="118.4" Width="718.2" Height="94.5">
+        <TextObject Name="Text1" Width="264.6" Height="37.8" Text="[UpperCase(&quot;Order Details&quot;)]" VertAlign="Center" Font="Angsana New, 18pt, style=Bold"/>
+        <TextObject Name="Text2" Top="37.8" Width="264.6" Height="18.9" Text="[Header.locationName] [Header.locationAddress]" VertAlign="Center" Font="Angsana New, 12pt"/>
+        <TextObject Name="Text3" Left="491.4" Width="226.8" Height="37.8" Text="[UpperCase(&quot;Order Details&quot;)]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 18pt, style=Bold"/>
+        <TableObject Name="Table3" Left="491.4" Top="37.8" Width="217.25" Height="56.7">
+          <TableColumn Name="Column11" Width="66.1"/>
+          <TableColumn Name="Column12" Width="151.15"/>
+          <TableRow Name="Row11">
+            <TableCell Name="Cell51" Text="Receipt #" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+            <TableCell Name="Cell52" Text="[Header.orderNumber]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          </TableRow>
+          <TableRow Name="Row12">
+            <TableCell Name="Cell56" Text="Date" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+            <TableCell Name="Cell57" Text="[Header.orderDate]" Format="Date" Format.Format="f" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          </TableRow>
+          <TableRow Name="Row13">
+            <TableCell Name="Cell61" Text="ID" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+            <TableCell Name="Cell62" Text="[Header.orderId]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          </TableRow>
+        </TableObject>
+        <TextObject Name="Text6" Top="56.7" Width="264.6" Height="18.9" Text="[Header.locationCity] [Header.locationPostalCode]" VertAlign="Center" Font="Angsana New, 12pt"/>
+        <TextObject Name="Text7" Top="75.6" Width="264.6" Height="18.9" Text="Tel. [Header.locationPhone]" VertAlign="Center" Font="Angsana New, 12pt"/>
+      </DataHeaderBand>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="149.25" Width="718.2" Height="18.9"/>
+    <DataBand Name="Data2" Top="430.8" Width="718.2" Height="18.9" DataSource="Details">
+      <TableObject Name="Table5" Left="18.9" Width="676.14" Height="18.9" Border.ShadowWidth="1">
+        <TableColumn Name="Column23" Width="52.8"/>
+        <TableColumn Name="Column24" Width="298.5"/>
+        <TableColumn Name="Column25" Width="100.05"/>
+        <TableColumn Name="Column26" Width="68.04"/>
+        <TableColumn Name="Column27" Width="156.75"/>
+        <TableRow Name="Row15">
+          <TableCell Name="Cell73" Border.Lines="All" Text="[Details.quantity]" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="[Details.productName] ([Substring([Details.productDescription], 20)])" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell75" Border.Lines="All" Text="[Details.unitPrice]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell76" Border.Lines="All" Text="[Details.discount]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell77" Border.Lines="All" Text="[Details.lineTotal]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader2" Top="409.4" Width="718.2" Height="18.9">
+        <TableObject Name="Table4" Left="18.9" Width="676.14" Height="18.9" Border.ShadowWidth="1">
+          <TableColumn Name="Column13" Width="52.8"/>
+          <TableColumn Name="Column14" Width="298.5"/>
+          <TableColumn Name="Column15" Width="100.05"/>
+          <TableColumn Name="Column22" Width="68.04"/>
+          <TableColumn Name="Column16" Width="156.75"/>
+          <TableRow Name="Row14">
+            <TableCell Name="Cell63" Border.Lines="All" Fill.Color="LightGray" Text="QTY" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+            <TableCell Name="Cell64" Border.Lines="All" Fill.Color="LightGray" Text="DESCRIPTION" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+            <TableCell Name="Cell65" Border.Lines="All" Fill.Color="LightGray" Text="UNIT PRICE" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+            <TableCell Name="Cell72" Border.Lines="All" Fill.Color="LightGray" Text="DISCOUNT" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+            <TableCell Name="Cell66" Border.Lines="All" Fill.Color="LightGray" Text="AMOUNT" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data3" Top="452.2" Width="718.2" Height="75.6" DataSource="Header">
+      <TableObject Name="Table6" Left="18.9" Width="676.14" Height="75.6" Border.ShadowWidth="1">
+        <TableColumn Name="Column28" Width="52.8"/>
+        <TableColumn Name="Column29" Width="298.5"/>
+        <TableColumn Name="Column30" Width="100.05"/>
+        <TableColumn Name="Column31" Width="68.04"/>
+        <TableColumn Name="Column32" Width="156.75"/>
+        <TableRow Name="Row16">
+          <TableCell Name="Cell78" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell79" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell80" HorzAlign="Center" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell81" Text="Subtotal" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell82" Border.Lines="Left, Right, Top" Text="[Header.subTotal]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+        </TableRow>
+        <TableRow Name="Row17">
+          <TableCell Name="Cell83" Font="Arial, 10pt"/>
+          <TableCell Name="Cell84" Font="Arial, 10pt"/>
+          <TableCell Name="Cell85" Font="Arial, 10pt"/>
+          <TableCell Name="Cell86" Text="Discount" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell87" Border.Lines="Left, Right" Text="[Header.discountAmount]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+        </TableRow>
+        <TableRow Name="Row19">
+          <TableCell Name="Cell93" Font="Arial, 10pt"/>
+          <TableCell Name="Cell94" Font="Arial, 10pt"/>
+          <TableCell Name="Cell95" Font="Arial, 10pt"/>
+          <TableCell Name="Cell96" Text="Tex" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+          <TableCell Name="Cell97" Border.Lines="Left, Right, Bottom" Text="[Header.taxAmount]" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 12pt"/>
+        </TableRow>
+        <TableRow Name="Row18">
+          <TableCell Name="Cell88" Font="Arial, 10pt"/>
+          <TableCell Name="Cell89" Font="Arial, 10pt"/>
+          <TableCell Name="Cell90" Font="Arial, 10pt"/>
+          <TableCell Name="Cell91" Text="[UpperCase(&quot;TOTAL&quot;)]" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TableCell Name="Cell92" Border.Lines="All" Fill.Color="LightGray" Text="[Header.totalAmount]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="$" Format.PositivePattern="0" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Angsana New, 14pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="530.3" Width="718.2" Height="18.9"/>
   </ReportPage>
 </Report>
