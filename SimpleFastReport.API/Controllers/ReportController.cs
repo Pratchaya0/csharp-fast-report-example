@@ -26,7 +26,6 @@ namespace SimpleFastReport.API.Controllers
 			return await _fastReportHelper.ExportReport(employees, "ReportTemplateI.frx", "employee-list", ExportType.PDF, "Employees");
 		}
 
-
 		[HttpGet("order-details/{orderID}")]
 		public async Task<IActionResult> GetOrderDetailByOrderID([FromRoute] int orderID, CancellationToken cancellationToken = default)
 		{

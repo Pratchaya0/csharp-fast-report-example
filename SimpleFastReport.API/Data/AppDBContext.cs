@@ -751,6 +751,7 @@ namespace SimpleFastReport.API.Data
                 entity.Property(e => e.SupplierName)
                     .IsRequired()
                     .HasMaxLength(100);
+                    
             });
 
             OnModelCreatingPartial(modelBuilder);

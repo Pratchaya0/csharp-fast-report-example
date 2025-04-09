@@ -35,6 +35,7 @@ namespace SimpleFastReport.API.Services
 				.ProjectTo<OrderReponseDTO>(_mapper.ConfigurationProvider)
 				.ToListAsync(cancellationToken);
 
+
 			var details = await _dBContext.OrderDetails
 				.Include(_ => _.Order)
 				.Include(_ => _.Product)
