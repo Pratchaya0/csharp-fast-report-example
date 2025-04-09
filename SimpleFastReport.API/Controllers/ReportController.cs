@@ -21,13 +21,12 @@ namespace SimpleFastReport.API.Controllers
 
 
         [HttpGet("data-employee-json")]
-        public async Task<IActionResult> GetListEmployee() => Ok(await _services.ListEmployeeAsync());
-
+        public async Task<IActionResult> GetListEmployee(CancellationToken cancellationToken = default) => Ok(await _services.ListEmployeeAsync(cancellationToken));
 
 
 
         [HttpGet("data-order-json/{orderID}")]
-        public async Task<IActionResult> GetFulldetailOrderByID([FromRoute] int orderID) => Ok(await _services.FullDetailOrderByIDAsync(orderID));
+        public async Task<IActionResult> GetFulldetailOrderByID([FromRoute] int orderID, CancellationToken cancellationToken = default) => Ok(await _services.FullDetailOrderByIDAsync(orderID, cancellationToken));
 
     }
 }

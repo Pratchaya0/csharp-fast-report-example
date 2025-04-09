@@ -21,13 +21,13 @@ namespace SimpleFastReport.API.Controllers
 		}
 
 		[HttpGet("employees")]
-		public async Task<IActionResult> EmployeeReportViewer()
+		public async Task<IActionResult> EmployeeReportViewer(CancellationToken cancellationToken = default)
 		{
 
 			try
 			{
 
-				var employees = await _services.ListEmployeeAsync();
+				var employees = await _services.ListEmployeeAsync(cancellationToken);
 
 				throw new NotImplementedException();
 
@@ -40,13 +40,13 @@ namespace SimpleFastReport.API.Controllers
 		}
 
 		[HttpGet("orders")]
-		public async Task<IActionResult> OrderReportViewer()
+		public async Task<IActionResult> OrderReportViewer(CancellationToken cancellationToken = default)
 		{
 
 			try
 			{
 
-				var order = await _services.FullDetailOrderByIDAsync(4);
+				var order = await _services.FullDetailOrderByIDAsync(4, cancellationToken);
 
 				throw new NotImplementedException();
 
