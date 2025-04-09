@@ -1,7 +1,6 @@
 ﻿using FastReport.Web;
 using Microsoft.AspNetCore.Mvc;
 using SimpleFastReport.API.Helpers;
-using SimpleFastReport.API.Models;
 using SimpleFastReport.API.Services;
 
 namespace SimpleFastReport.API.Controllers

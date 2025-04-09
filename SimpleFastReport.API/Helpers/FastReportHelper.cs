@@ -1,13 +1,10 @@
 ﻿using FastReport;
-using FastReport.Data;
 using FastReport.Export.Html;
 using FastReport.Export.Image;
 using FastReport.Export.PdfSimple;
-using Microsoft.AspNetCore.Mvc;
-using System.Drawing.Text;
-using System.Drawing;
-using System.Text.Json.Serialization;
 using FastReport.Web;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json.Serialization;
 
 namespace SimpleFastReport.API.Helpers
 {
@@ -132,7 +129,7 @@ namespace SimpleFastReport.API.Helpers
 
 					return File(ms.ToArray(), contentType, $"{filename}.{fileExtension}");
 
-				}	
+				}
 
 			}
 			catch (Exception ex)

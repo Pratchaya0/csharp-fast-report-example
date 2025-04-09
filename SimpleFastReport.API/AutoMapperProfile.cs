@@ -4,24 +4,24 @@ using SimpleFastReport.API.Models;
 
 namespace SimpleFastReport.API
 {
-    public class AutoMapperProfile : Profile
-    {
+	public class AutoMapperProfile : Profile
+	{
 
-        public AutoMapperProfile()
-        {
+		public AutoMapperProfile()
+		{
 
-            CreateMap<Employee, EmployeeReponseDTO>();
+			CreateMap<Employee, EmployeeReponseDTO>();
 
-            CreateMap<Product, ProductResponeDTO>()
-                .ForMember(_ => _.ProductGroup, _ => _.MapFrom(_ => _.ProductGroup));
+			CreateMap<Product, ProductResponeDTO>()
+				.ForMember(_ => _.ProductGroup, _ => _.MapFrom(_ => _.ProductGroup));
 
-            CreateMap<ProductGroup, ProductGroupResponseDTO>();
+			CreateMap<ProductGroup, ProductGroupResponseDTO>();
 
-            CreateMap<Order, OrderReponseDTO>();
+			CreateMap<Order, OrderReponseDTO>();
 
-            CreateMap<OrderDetail, OrderDetailReponseDTO>()
-                .ForMember(_ => _.ProductDetail, _ => _.MapFrom(_ => _.Product));
+			CreateMap<OrderDetail, OrderDetailReponseDTO>()
+				.ForMember(_ => _.ProductDetail, _ => _.MapFrom(_ => _.Product));
 
-        }
-    }
+		}
+	}
 }
