@@ -29,7 +29,7 @@ namespace SimpleFastReport.API.Controllers
 
 				var employees = await _services.ListEmployeeAsync();
 
-				var webReport = _fastReportHelper.CreateReport(employees, "ReportTemplateI.frx", "Employees");
+				var webReport = _fastReportHelper.CreateWebReport(employees, "ReportTemplateI.frx", "Employees");
 
 				ToolbarSettings toolbar = new ToolbarSettings()
 				{
@@ -62,7 +62,7 @@ namespace SimpleFastReport.API.Controllers
 
 				var order = await _services.FullDetailOrderByIDAsync(4);
 
-				var webReport = _fastReportHelper.CreateReport(order, "ReportTemplateII.frx", "Orders");
+				var webReport = _fastReportHelper.CreateWebReport(order, "ReportTemplateII.frx", "Orders");
 
 				ViewBag.WebReport = webReport;
 				return View("~/Views/Report/OrderDetails.cshtml");

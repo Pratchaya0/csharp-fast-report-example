@@ -146,7 +146,7 @@ namespace SimpleFastReport.API.Helpers
 
 		}
 
-		public WebReport CreateReport<T>(IEnumerable<T> data, string reportTemplate, string? dataSetName = "JSON")
+		public WebReport CreateWebReport<T>(IEnumerable<T> data, string reportTemplate, string? dataSetName = "JSON")
 		{
 			var webReport = new WebReport();
 			webReport.Report.Load(Path.Combine(ReportsPath, reportTemplate));
