@@ -18,10 +18,10 @@ namespace SimpleFastReport.API.Services
 			_mapper = mapper;
 		}
 
-		public async Task<List<EmployeeReponseDTO>> ListEmployeeAsync()
-			=> await _dBContext.Employees.Take(1000).ProjectTo<EmployeeReponseDTO>(_mapper.ConfigurationProvider).ToListAsync();
+		public async Task<List<EmployeeReponseDTO>> ListEmployeeAsync(CancellationToken cancellationToken = default)
+			=> await _dBContext.Employees.Take(1000).ProjectTo<EmployeeReponseDTO>(_mapper.ConfigurationProvider).ToListAsync(cancellationToken);
 
-		public async Task<List<OrderReponseDTO>> FullDetailOrderByIDAsync(int orderID)
+		public async Task<List<OrderReponseDTO>> FullDetailOrderByIDAsync(int orderID, CancellationToken cancellationToken = default)
 		{
 			var order = await _dBContext.Orders
 				.Include(_ => _.OrderDetails)
@@ -30,7 +30,7 @@ namespace SimpleFastReport.API.Services
 				.Where(_ => _.OrderId == orderID && _.IsActive == true)
 				.AsSplitQuery()
 				.ProjectTo<OrderReponseDTO>(_mapper.ConfigurationProvider)
-				.ToListAsync();
+				.ToListAsync(cancellationToken);
 
 			return order;
 		}
